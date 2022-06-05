@@ -18,7 +18,7 @@ fn main() -> std::io::Result<()> {
         file_path.push_str("/");
         file_path.push_str(&add2);
 
-        println!("Making folder with name {} ", args[1]);
+        println!("Creating project with name: {} ", args[1]);
 
         //Creates Main Directory
         fs::create_dir(&file_path)?;
@@ -52,6 +52,9 @@ fn main() -> std::io::Result<()> {
 
         let mut file = File::create(&new_path)?;
         file.write_all("fn main() {\n    println!(\"Hello world!\");\n}".as_bytes())?;
+        
+        println!("Done!");
+        
     }
     else {
         println!("{}The following required arguments were not provided:\n{}\nUSAGE:\n    cargnt <path>", "error: ".rgb("255;0;0"), "    <path>".rgb("0;255;0"));
